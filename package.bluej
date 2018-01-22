@@ -31,8 +31,16 @@ target1.type=ClassTarget
 target1.width=80
 target1.x=70
 target1.y=10
+<<<<<<< HEAD
+=======
+target2.editor.height=876
+target2.editor.width=1548
+target2.editor.x=-8
+target2.editor.y=-8
+>>>>>>> 5b4616d2a2453098c4aabaad04fbeadbed63cd31
 target2.height=50
 target2.name=Graphic
+target2.naviview.expanded=true
 target2.showInterface=false
 target2.type=ClassTarget
 target2.width=80
