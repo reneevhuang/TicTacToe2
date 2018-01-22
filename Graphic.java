@@ -9,10 +9,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowAdapter;
 
 class Surface extends JPanel implements MouseListener, ActionListener {
     private Graphics2D g2d;
     private int[][] playerMoves = new int[3][3];
+    private final int DELAY = 30;
+    private final Color BACKGROUND = Color.white;
+    private final Color FOREGROUND = Color.black;
+    Timer timer;
     /**
      * TODO:
      * 1. Set the color of the foreground by calling "setForeground(Color.[enter color]);"
@@ -22,12 +28,16 @@ class Surface extends JPanel implements MouseListener, ActionListener {
      */
     public Surface()
     {
-
+        
     }
 
     private void initTimer() {
-        //timer = new Timer(DELAY, this);
-        //timer.start();
+        timer = new Timer(DELAY, this);
+        timer.start();
+    }
+    
+    public Timer getTimer() {
+        return timer;
     }
 
     @Override
@@ -42,7 +52,8 @@ class Surface extends JPanel implements MouseListener, ActionListener {
      * 3. Call "doDrawing(g);"
      */
     protected void paintComponent(Graphics g) {
-
+        g2d = (Graphics2D) g;
+        doDrawing();
     }
 
     /**
@@ -57,8 +68,8 @@ class Surface extends JPanel implements MouseListener, ActionListener {
     g2d.setRenderingHints(rh);"
      * 3. Call "drawBoard();" method
      */
-    private void doDrawing(Graphics g) {
-
+    private void doDrawing() {
+        drawBoard();
     }
 
     /**
@@ -89,7 +100,11 @@ class Surface extends JPanel implements MouseListener, ActionListener {
      */
     public void drawBoard()
     {
-
+        int h = getHeight();
+        int w = getWidth();
+        int size = 50;
+        g2d.setColor(FOREGROUND);
+        g2d.drawLine(w/2-size,h/2-3*size,w/2-size,h/2+3*size);
     }
 
     @Override
@@ -141,7 +156,7 @@ public class Graphic extends JFrame {
      * 4. Call "initUI();"
      */
     public Graphic() {
-
+        initUI();
     }
 
     /**
@@ -152,6 +167,21 @@ public class Graphic extends JFrame {
      */
     private void initUI() {
 
+        final Surface surface = new Surface();
+        add(surface);
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                Timer timer = surface.getTimer();
+                timer.stop();
+            }
+        });
+
+        setTitle("TicTacToe");
+        setSize(1000, 1000);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public static void main(String[] args) {
