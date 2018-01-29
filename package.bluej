@@ -1,19 +1,22 @@
 #BlueJ package file
+dependency1.from=Graphic
+dependency1.to=Game
+dependency1.type=UsesDependency
 editor.fx.0.height=876
 editor.fx.0.width=1456
 editor.fx.0.x=-8
 editor.fx.0.y=-8
-objectbench.height=155
+objectbench.height=244
 objectbench.width=1416
 package.divider.horizontal=0.6
-package.divider.vertical=0.7912371134020618
-package.editor.height=607
+package.divider.vertical=0.6765463917525774
+package.editor.height=518
 package.editor.width=1326
 package.editor.x=-8
 package.editor.y=-8
 package.frame.height=876
 package.frame.width=1456
-package.numDependencies=0
+package.numDependencies=1
 package.numTargets=2
 package.showExtends=true
 package.showUses=true
@@ -31,13 +34,6 @@ target1.type=ClassTarget
 target1.width=80
 target1.x=70
 target1.y=10
-<<<<<<< HEAD
-=======
-target2.editor.height=876
-target2.editor.width=1548
-target2.editor.x=-8
-target2.editor.y=-8
->>>>>>> 5b4616d2a2453098c4aabaad04fbeadbed63cd31
 target2.height=50
 target2.name=Graphic
 target2.naviview.expanded=true

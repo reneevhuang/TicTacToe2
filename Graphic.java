@@ -19,6 +19,8 @@ class Surface extends JPanel implements MouseListener, ActionListener {
     private final Color BACKGROUND = Color.white;
     private final Color FOREGROUND = Color.black;
     Timer timer;
+    int size = 100;
+    Game game;
     /**
      * TODO:
      * 1. Set the color of the foreground by calling "setForeground(Color.[enter color]);"
@@ -26,16 +28,16 @@ class Surface extends JPanel implements MouseListener, ActionListener {
      * 3. Set the font that will appear in the window by calling "setFont(new Font("[font name]", Font.PLAIN, [font size]));"
      * 4. Start the timer by calling "initTimer();"
      */
-    public Surface()
+    public Surface()//Game thegame)
     {
-        
+        //game = thegame;
     }
 
     private void initTimer() {
         timer = new Timer(DELAY, this);
         timer.start();
     }
-    
+
     public Timer getTimer() {
         return timer;
     }
@@ -69,6 +71,8 @@ class Surface extends JPanel implements MouseListener, ActionListener {
      * 3. Call "drawBoard();" method
      */
     private void doDrawing() {
+        size = (getWidth()+getHeight())/15;
+        drawBackground();
         drawBoard();
     }
 
@@ -80,8 +84,21 @@ class Surface extends JPanel implements MouseListener, ActionListener {
      */
     public void drawO(int x, int y)
     {
-
+        int radius = size*3/4;  
+        int h = getHeight();
+        int w = getWidth();
+        g2d.setColor(FOREGROUND);
+        g2d.fillOval(w/2+(int)(x*size*2)-radius, h/2+(int)(y*size*2)-radius,radius*2,radius*2);
+        g2d.setColor(BACKGROUND);
+        radius-=5;
+        g2d.fillOval(w/2+(int)(x*size*2)-radius, h/2+(int)(y*size*2)-radius,radius*2,radius*2);
     } 
+    
+    private void drawBackground()
+    {
+        g2d.setColor(BACKGROUND);
+        g2d.fillRect(0,0,getWidth(),getHeight());
+    }
 
     /**
      * TODO:
@@ -91,7 +108,13 @@ class Surface extends JPanel implements MouseListener, ActionListener {
      */
     public void drawX(int x, int y)
     {
-
+        g2d.setStroke(new BasicStroke(5));
+        int radius = size*3/4;  
+        int h = getHeight();
+        int w = getWidth();
+        g2d.setColor(FOREGROUND);
+        g2d.drawLine(w/2+(int)(x*size*2)-radius, h/2+(int)(y*size*2)-radius,w/2+(int)(x*size*2)+radius, h/2+(int)(y*size*2)+radius);
+        g2d.drawLine(w/2+(int)(x*size*2)-radius, h/2+(int)(y*size*2)+radius,w/2+(int)(x*size*2)+radius, h/2+(int)(y*size*2)-radius);
     } 
 
     /**
@@ -102,9 +125,11 @@ class Surface extends JPanel implements MouseListener, ActionListener {
     {
         int h = getHeight();
         int w = getWidth();
-        int size = 50;
         g2d.setColor(FOREGROUND);
-        g2d.drawLine(w/2-size,h/2-3*size,w/2-size,h/2+3*size);
+        g2d.fillRect(w/2-size,h/2-3*size,5,6*size);//w/2-size,h/2+3*size);
+        g2d.fillRect(w/2+size,h/2-3*size,5,6*size);
+        g2d.fillRect(w/2-3*size,h/2-size,6*size,5);
+        g2d.fillRect(w/2-3*size,h/2+size,6*size,5);
     }
 
     @Override
@@ -171,12 +196,12 @@ public class Graphic extends JFrame {
         add(surface);
 
         addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                Timer timer = surface.getTimer();
-                timer.stop();
-            }
-        });
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    Timer timer = surface.getTimer();
+                    timer.stop();
+                }
+            });
 
         setTitle("TicTacToe");
         setSize(1000, 1000);
