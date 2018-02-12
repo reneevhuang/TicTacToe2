@@ -1,4 +1,5 @@
 import java.util.*;
+import javax.swing.JOptionPane;
 /**
  * Write a description of class Game here.
  * 
@@ -8,7 +9,8 @@ import java.util.*;
 public class Game
 {
     private int[][] playerMoves = new int[3][3];
-
+    private int[][] game;
+    Surface surface;
     /**
      * TODO: 
      * 1. Initialize an int[3][3] and name the int array "game." make sure this is a class variable
@@ -20,7 +22,12 @@ public class Game
      */ 
     public Game()
     {
-
+        game = new int[3][3];
+        String intro = "Welcome to Tic Tac Toe!";
+        JOptionPane.showMessageDialog(null, intro);
+        int rounds = Integer.parseInt(JOptionPane.showInputDialog("How many rounds would you like to play?"));
+        Graphic.main(null);
+        play(rounds);
     }
 
     /**
@@ -32,7 +39,13 @@ public class Game
      */
     public void play(int rounds)
     {
-
+        for(int i = 0; i < rounds; i++)
+        {
+            while(anyMovesLeft())
+            {
+                player1Move();
+            }
+        }
     }
 
     /**
@@ -43,7 +56,9 @@ public class Game
      */
     public void player1Move()
     {
-
+        int row = getRowClicked();
+        int column = getColumnClicked();
+        playerMoves[row][column] = 1;
     }
 
     /**
@@ -54,7 +69,9 @@ public class Game
      */
     public void player2Move()
     {
-
+        int row = getRowClicked();
+        int column = getColumnClicked();
+        playerMoves[row][column] = 2;
     }
 
     /**
@@ -64,6 +81,35 @@ public class Game
      * empty spaces left
      */
     public boolean anyMovesLeft()
+    {
+        if(didXWin() == true || didOWin() == true)
+            return false;
+        return true;
+    }
+
+    public boolean didXWin()
+    {
+        boolean a = false;
+        for(int r = 0; r < 3; r++)
+        {
+            for(int c = 0; c < 3; c++)
+            {
+                if(game[r][c] != 1) {
+                    a = false;
+                    break;
+                }
+                if(a)
+                    return true;
+            }
+        }
+        for(int r = 0; r < 3; r++)
+        {
+
+        }
+        return false;
+    }
+
+    public boolean didOWin()
     {
         return false;
     }
