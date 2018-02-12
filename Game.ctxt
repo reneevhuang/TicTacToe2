@@ -1,5 +1,4 @@
 #BlueJ class context
-<<<<<<< HEAD
 comment0.target=Game
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Game\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
@@ -7,30 +6,20 @@ comment1.target=Game()
 comment1.text=\r\n\ TODO\:\ \r\n\ 1.\ Initialize\ an\ int[3][3]\ and\ name\ the\ int\ array\ "game."\ make\ sure\ this\ is\ a\ class\ variable\r\n\ Introduce\ the\ TicTacToe\ game\ with\ instructions\ how\ to\ play\ by\ calling\ "JOptionPane.showMessageDialog(null,\ [string\ message]);"\ replace\ [string\ message]\ with\ desired\ message\r\n\ 2.\ Ask\ the\ user\ how\ many\ rounds\ she/he\ would\ like\ to\ play\ by\ callilng\ "JOptionPane.showInputDialog([ask\ how\ many\ rounds]);"\ set\ the\ input\ to\ an\ int\ variable\ called\ "rounds"\r\n\ 3.\ Create\ the\ board\ by\ creating\ a\ Surface\ object.\ Make\ sure\ this\ surface\ object\ is\ a\ class\ variable\ called\ "Surface."\r\n\ 4.\ Call\ "Graphic.main(null);"\ method\r\n\ 5.\ Call\ "play(rounds);"\ method\r\n
 comment2.params=rounds
 comment2.target=void\ play(int)
-comment2.text=\r\n\ 1.\ Create\ a\ for\ loop\ that\ would\ iterate\ the\ number\ of\ rounds\ played.\ Round\ number\ is\ indicated\ by\ the\ class\ variable\ "rounds"\r\n\ 2.\ Create\ a\ while\ loop\ inside\ the\ for\ loop\ that\ runs\ while\ anyMovesLeft()\ is\ true.\ \r\n\ 3.\ Call\ player1Move()\r\n\ 4.\ If\ anyMovesLeft()\ is\ false,\ for\ loop\ should\ end\ and\ start\ a\ new\ round\ while\ increasing\ "rounds"\ by\ 1\ \r\n
+comment2.text=\r\n\ TODO\:\r\n\ 1.\ Create\ a\ for\ loop\ that\ would\ iterate\ the\ number\ of\ rounds\ played.\ Round\ number\ is\ indicated\ by\ the\ class\ variable\ "rounds"\r\n\ 2.\ Create\ a\ while\ loop\ inside\ the\ for\ loop\ that\ runs\ while\ anyMovesLeft()\ is\ true.\ \r\n\ 3.\ Call\ player1Move()\r\n\ 4.\ If\ anyMovesLeft()\ is\ false,\ for\ loop\ should\ end\ and\ start\ a\ new\ round\ while\ increasing\ "rounds"\ by\ 1\ \r\n
 comment3.params=
 comment3.target=void\ player1Move()
-comment3.text=\r\n\ 1.\ Get\ player\ 1\ move\ of\ the\ row\ based\ on\ location\ of\ mouse\ clicked\ by\ calling\ getRowClicked()\ and\ setting\ it\ to\ an\ instance\ int\ called\ "row"\r\n\ \ Get\ player\ 1\ move\ of\ the\ column\ based\ on\ location\ of\ mouse\ clicked\ by\ calling\ getColumnClicked()\ and\ setting\ it\ to\ an\ instance\ int\ called\ "column"\r\n\ 2.\ Make\ sure\ that\ the\ move\ is\ validate\ by\ checking\ if\ the\r\n
-=======
-comment0.params=
-comment0.target=Game()
-comment0.text=\r\n\ TODO\:\ \r\n\ 1.\ Initialize\ an\ int[3][3]\ and\ name\ the\ int\ array\ "game."\ make\ sure\ this\ is\ a\ class\ variable\r\n\ Introduce\ the\ TicTacToe\ game\ with\ instructions\ how\ to\ play\ by\ calling\ "JOptionPane.showMessageDialog(null,\ [string\ message]);"\ replace\ [string\ message]\ with\ desired\ message\r\n\ 2.\ Ask\ the\ user\ how\ many\ rounds\ she/he\ would\ like\ to\ play\ by\ callilng\ "JOptionPane.showInputDialog([ask\ how\ many\ rounds]);"\ set\ the\ input\ to\ an\ int\ variable\ called\ "rounds"\r\n\ 3.\ Create\ the\ board\ by\ creating\ a\ Surface\ object.\ Make\ sure\ this\ surface\ object\ is\ a\ class\ variable\ called\ "Surface."\r\n\ 4.\ Call\ "Graphic.main(null);"\ method\r\n\ 5.\ Call\ "play(rounds);"\ method\r\n
-comment1.params=rounds
-comment1.target=void\ play(int)
-comment1.text=\r\n\ 1.\ Create\ a\ for\ loop\ that\ would\ iterate\ the\ number\ of\ rounds\ played.\ Round\ number\ is\ indicated\ by\ the\ class\ variable\ "rounds"\r\n\ 2.\ Create\ a\ while\ loop\ inside\ the\ for\ loop\ that\ runs\ while\ anyMovesLeft()\ is\ true.\ \r\n\ 3.\ Call\ player1Move()\r\n\ 4.\ If\ anyMovesLeft()\ is\ false,\ for\ loop\ should\ end\ and\ start\ a\ new\ round\ while\ increasing\ "rounds"\ by\ 1\ \r\n
-comment2.params=
-comment2.target=void\ player1Move()
-comment2.text=\r\n\ 1.\ Get\ player\ 1\ move\ of\ the\ row\ based\ on\ location\ of\ mouse\ clicked\ by\ calling\ getRowClicked()\ and\ setting\ it\ to\ an\ instance\ int\ called\ "row"\r\n\ \ Get\ player\ 1\ move\ of\ the\ column\ based\ on\ location\ of\ mouse\ clicked\ by\ calling\ getColumnClicked()\ and\ setting\ it\ to\ an\ instance\ int\ called\ "column"\r\n\ 2.\ Make\ sure\ that\ the\ move\ is\ validate\ by\ checking\ if\ the\ move\ has\ been\ played\ before\ based\ on\ the\ \r\n
-comment3.params=
-comment3.target=void\ player2Move()
-comment3.text=\r\n\ 1.\ Get\ player\ 2\ move\ of\ the\ row\ based\ on\ location\ of\ mouse\ clicked\ by\ calling\ getRowClicked()\ and\ setting\ it\ to\ an\ instance\ int\ called\ "row"\r\n\ \ Get\ player\ 2\ move\ of\ the\ column\ based\ on\ location\ of\ mouse\ clicked\ by\ calling\ getColumnClicked()\ and\ setting\ it\ to\ an\ instance\ int\ called\ "column"\r\n\ 2.\ Make\ sure\ that\ the\ move\ is\ validate\ by\ checking\ if\ the\r\n
->>>>>>> 5b4616d2a2453098c4aabaad04fbeadbed63cd31
+comment3.text=\r\n\ TODO\:\r\n\ 1.\ Get\ player\ 1\ move\ of\ the\ row\ based\ on\ location\ of\ mouse\ clicked\ by\ calling\ getRowClicked()\ and\ setting\ it\ to\ an\ instance\ int\ called\ "row"\r\n\ \ Get\ player\ 1\ move\ of\ the\ column\ based\ on\ location\ of\ mouse\ clicked\ by\ calling\ getColumnClicked()\ and\ setting\ it\ to\ an\ instance\ int\ called\ "column"\r\n\ 2.\ Add\ move\ to\ the\ playerMoves[row][column]\ by\ changing\ the\ value\ to\ 1.\r\n
 comment4.params=
-comment4.target=boolean\ anyMovesLeft()
-comment4.text=\r\n\ TODO\:\r\n\ Checks\ if\ there\ are\ any\ winners\ by\ calling\ didXWin()\ and\ didOWin();\ if\ either\ returns\ true,\ the\ method\ should\ return\ false\r\n\ If\ there\ are\ no\ one,\ check\ the\ class\ variable\ game[][]\ to\ see\ if\ there\ are\ any\ moves\ left;\ create\ a\ for\ loop\ that\ iterates\ through\ the\ array\ to\ see\ if\ there\ are\ any\r\n\ empty\ spaces\ left\r\n
+comment4.target=void\ player2Move()
+comment4.text=\r\n\ TODO\:\r\n\ 1.\ Get\ player\ 2\ move\ of\ the\ row\ based\ on\ location\ of\ mouse\ clicked\ by\ calling\ getRowClicked()\ and\ setting\ it\ to\ an\ instance\ int\ called\ "row"\r\n\ \ Get\ player\ 2\ move\ of\ the\ column\ based\ on\ location\ of\ mouse\ clicked\ by\ calling\ getColumnClicked()\ and\ setting\ it\ to\ an\ instance\ int\ called\ "column"\r\n\ 2.\ Add\ move\ to\ the\ playerMoves[row][column]\ by\ changing\ the\ value\ to\ 2.\r\n
 comment5.params=
-comment5.target=int\ getRowClicked()
-comment5.text=\r\n\ Call\ \r\n
+comment5.target=boolean\ anyMovesLeft()
+comment5.text=\r\n\ TODO\:\r\n\ 1.\ Checks\ if\ there\ are\ any\ winners\ by\ calling\ didXWin()\ and\ didOWin();\ if\ either\ returns\ true,\ the\ method\ should\ return\ false\r\n\ 2.\ If\ there\ are\ no\ one,\ check\ the\ class\ variable\ game[][]\ to\ see\ if\ there\ are\ any\ moves\ left;\ create\ a\ for\ loop\ that\ iterates\ through\ the\ array\ to\ see\ if\ there\ are\ any\r\n\ empty\ spaces\ left\r\n
 comment6.params=
-comment6.target=int\ getColumnClicked()
-numComments=7
+comment6.target=int\ getRowClicked()
+comment6.text=\r\n\ \ \r\n
+comment7.params=
+comment7.target=int\ getColumnClicked()
+comment7.text=\r\n\ \r\n
+numComments=8

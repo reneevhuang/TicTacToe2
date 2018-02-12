@@ -12,15 +12,17 @@ import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowAdapter;
 
-class Surface extends JPanel implements MouseListener, ActionListener {
+class Surface extends JPanel implements ActionListener
+{
     private Graphics2D g2d;
     private int[][] playerMoves = new int[3][3];
     private final int DELAY = 30;
     private final Color BACKGROUND = Color.white;
     private final Color FOREGROUND = Color.black;
     Timer timer;
-    int size = 100;
+    private int size = 100;
     Game game;
+    private MouseInfo mouse;
     /**
      * TODO:
      * 1. Set the color of the foreground by calling "setForeground(Color.[enter color]);"
@@ -28,18 +30,29 @@ class Surface extends JPanel implements MouseListener, ActionListener {
      * 3. Set the font that will appear in the window by calling "setFont(new Font("[font name]", Font.PLAIN, [font size]));"
      * 4. Start the timer by calling "initTimer();"
      */
-    public Surface()//Game thegame)
+    public Surface()
     {
-        //game = thegame;
+        setForeground(FOREGROUND);
+        setBackground(BACKGROUND);
+        mouse = new MouseInfo();
+        addMouseMotionListener(mouse);
+        //setFont(new Font("[font name]", Font.PLAIN, [font size]));
     }
 
-    private void initTimer() {
+    private void initTimer()
+    {
         timer = new Timer(DELAY, this);
         timer.start();
     }
 
-    public Timer getTimer() {
+    public Timer getTimer()
+    {
         return timer;
+    }
+    
+    public int getSizeVar()
+    {
+        return size;
     }
 
     @Override
@@ -70,10 +83,19 @@ class Surface extends JPanel implements MouseListener, ActionListener {
     g2d.setRenderingHints(rh);"
      * 3. Call "drawBoard();" method
      */
-    private void doDrawing() {
+    private void doDrawing() { //unfinished
         size = (getWidth()+getHeight())/15;
         drawBackground();
         drawBoard();
+        int mX = mouse.getX();
+        int mY = mouse.getY();
+        int h = getHeight();
+        int w = getWidth();
+        if(mouse.click)
+        {
+            mX = -1 + (mX-(w/2-3*size))/(2*size);
+            mY = -1 + (mY-(h/2-3*size))/(2*size);
+        }
     }
 
     /**
@@ -126,7 +148,7 @@ class Surface extends JPanel implements MouseListener, ActionListener {
         int h = getHeight();
         int w = getWidth();
         g2d.setColor(FOREGROUND);
-        g2d.fillRect(w/2-size,h/2-3*size,5,6*size);//w/2-size,h/2+3*size);
+        g2d.fillRect(w/2-size,h/2-3*size,5,6*size);
         g2d.fillRect(w/2+size,h/2-3*size,5,6*size);
         g2d.fillRect(w/2-3*size,h/2-size,6*size,5);
         g2d.fillRect(w/2-3*size,h/2+size,6*size,5);
@@ -137,38 +159,6 @@ class Surface extends JPanel implements MouseListener, ActionListener {
         repaint();
     }
 
-    /**
-     * TODO:
-     * 1. Create 9 if statements, one for each area within the tic tac toe grid the player clicks
-     * 2. Based on the location, set the "playerMoves" int[][] = 1 with the condition that that it was -1 before seeting it to 1
-     * if the value inside the playerMove was -1 before setting it to 1, 
-     * display error message calling user to select a new valid move by calling "JOptionPane.showMessageDialog(null, [string message specifying that it is an invalid move]);"
-     * 3. Set class variable "playerMoved" to true if there were no errors from directions 2
-     */
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
 }
 
 public class Graphic extends JFrame {
