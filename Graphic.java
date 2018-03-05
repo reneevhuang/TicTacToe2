@@ -23,6 +23,7 @@ class Surface extends JPanel implements ActionListener
     private int size = 100;
     Game game;
     private MouseInfo mouse;
+
     /**
      * TODO:
      * 1. Set the color of the foreground by calling "setForeground(Color.[enter color]);"
@@ -30,12 +31,13 @@ class Surface extends JPanel implements ActionListener
      * 3. Set the font that will appear in the window by calling "setFont(new Font("[font name]", Font.PLAIN, [font size]));"
      * 4. Start the timer by calling "initTimer();"
      */
-    public Surface()
+    public Surface(Game ggame)
     {
         setForeground(FOREGROUND);
         setBackground(BACKGROUND);
         mouse = new MouseInfo();
-        addMouseMotionListener(mouse);
+        addMouseListener(mouse);
+        game = ggame;
         //setFont(new Font("[font name]", Font.PLAIN, [font size]));
     }
 
@@ -49,7 +51,7 @@ class Surface extends JPanel implements ActionListener
     {
         return timer;
     }
-    
+
     public int getSizeVar()
     {
         return size;
@@ -68,6 +70,7 @@ class Surface extends JPanel implements ActionListener
      */
     protected void paintComponent(Graphics g) {
         g2d = (Graphics2D) g;
+        super.paintComponent(g);
         doDrawing();
     }
 
@@ -83,7 +86,8 @@ class Surface extends JPanel implements ActionListener
     g2d.setRenderingHints(rh);"
      * 3. Call "drawBoard();" method
      */
-    private void doDrawing() { //unfinished
+    private void doDrawing() {
+        //unfinished
         size = (getWidth()+getHeight())/15;
         drawBackground();
         drawBoard();
@@ -93,11 +97,17 @@ class Surface extends JPanel implements ActionListener
         int w = getWidth();
         if(mouse.click)
         {
-            mX = -1 + (mX-(w/2-3*size))/(2*size);
-            mY = -1 + (mY-(h/2-3*size))/(2*size);
+            mX = (mX-(w/2-3*size))/(2*size);
+            mY = (mY-(h/2-3*size))/(2*size);
+            System.out.println("Click: " + mX + ", " + mY);
+            game.player1Move(mX,mY);
+            mouse.click = false;
         }
+        for(int r=0;r<3;r++)
+            for(int c=0;c<3;c++)
+                if(game.getPlayerMoves()[r][c]==1)
+                    drawO(r-1,c-1);
     }
-
     /**
      * TODO:
      * 1. Set paint color of the x that will be drawn "g2d.setPaint(Color.[enter color]);"
@@ -115,7 +125,7 @@ class Surface extends JPanel implements ActionListener
         radius-=5;
         g2d.fillOval(w/2+(int)(x*size*2)-radius, h/2+(int)(y*size*2)-radius,radius*2,radius*2);
     } 
-    
+
     private void drawBackground()
     {
         g2d.setColor(BACKGROUND);
@@ -131,7 +141,7 @@ class Surface extends JPanel implements ActionListener
     public void drawX(int x, int y)
     {
         g2d.setStroke(new BasicStroke(5));
-        int radius = size*3/4;  
+        int radius = size*3/4;
         int h = getHeight();
         int w = getWidth();
         g2d.setColor(FOREGROUND);
@@ -181,8 +191,8 @@ public class Graphic extends JFrame {
      * 4. Make sure the window closes when the user clicks the top right x. (call "setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);")
      */
     private void initUI() {
-
-        final Surface surface = new Surface();
+        Game theGame = new Game();
+        final Surface surface = new Surface(theGame);
         add(surface);
 
         addWindowListener(new WindowAdapter() {

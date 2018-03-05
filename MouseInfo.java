@@ -1,11 +1,11 @@
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
-class MouseInfo implements MouseMotionListener
+import java.awt.event.MouseListener;
+class MouseInfo implements MouseListener
 {
     private int 
     x,y,clickedX,clickedY;
     boolean click = false;
-
+    
     public int getX()
     {
         return x;
@@ -25,10 +25,14 @@ class MouseInfo implements MouseMotionListener
     {
         return clickedY;
     }
-
+    
+    @Override
     public void mouseClicked(MouseEvent e) {
         clickedX=e.getX();
         clickedY=e.getY();
+        x=e.getX();
+        y=e.getY();
+        click = true;
     }
 
     public void mouseEntered(MouseEvent e) {
@@ -39,32 +43,19 @@ class MouseInfo implements MouseMotionListener
     public void mouseExited(MouseEvent e) {
         x = 0;
         y = 0;
-        click=false;
     }
 
     public void mousePressed(MouseEvent e) {
         clickedX=e.getX();
         clickedY=e.getY();
+        x=e.getX();
+        y=e.getY();
         click=true;
     }
 
     public void mouseReleased(MouseEvent e) {
-        click=false;
-    }
-
-    public void mouseMoved(MouseEvent e)
-    {
-        x=e.getX();
-        y=e.getY();
-        click=false;
-    }
-
-    public void mouseDragged(MouseEvent e)
-    {
-        x=e.getX();
-        y=e.getY();
-        clickedX=e.getX();
-        clickedY=e.getY();
         click=true;
+        x=e.getX();
+        y=e.getY();
     }
 }

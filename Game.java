@@ -26,8 +26,17 @@ public class Game
         String intro = "Welcome to Tic Tac Toe!";
         JOptionPane.showMessageDialog(null, intro);
         int rounds = Integer.parseInt(JOptionPane.showInputDialog("How many rounds would you like to play?"));
-        Graphic.main(null);
-        play(rounds);
+        //Graphic.main(null);
+        //play(rounds);
+    }
+    
+    /**
+     * Accessor method for playermoves
+     * 
+     */
+    public int[][] getPlayerMoves()
+    {
+        return playerMoves;
     }
 
     /**
@@ -43,7 +52,7 @@ public class Game
         {
             while(anyMovesLeft())
             {
-                player1Move();
+                ;//player1Move();
             }
         }
     }
@@ -54,10 +63,10 @@ public class Game
      *  Get player 1 move of the column based on location of mouse clicked by calling getColumnClicked() and setting it to an instance int called "column"
      * 2. Add move to the playerMoves[row][column] by changing the value to 1.
      */
-    public void player1Move()
+    public void player1Move(int x, int y)
     {
-        int row = getRowClicked();
-        int column = getColumnClicked();
+        int row = x;
+        int column = y;
         playerMoves[row][column] = 1;
     }
 
@@ -67,10 +76,10 @@ public class Game
      *  Get player 2 move of the column based on location of mouse clicked by calling getColumnClicked() and setting it to an instance int called "column"
      * 2. Add move to the playerMoves[row][column] by changing the value to 2.
      */
-    public void player2Move()
+    public void player2Move(int x, int y)
     {
-        int row = getRowClicked();
-        int column = getColumnClicked();
+        int row = x;
+        int column = y;
         playerMoves[row][column] = 2;
     }
 

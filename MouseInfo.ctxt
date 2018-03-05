@@ -2,10 +2,6 @@
 comment0.target=MouseInfo
 comment1.params=
 comment1.target=int\ getX()
-comment10.params=e
-comment10.target=void\ mouseMoved(java.awt.event.MouseEvent)
-comment11.params=e
-comment11.target=void\ mouseDragged(java.awt.event.MouseEvent)
 comment2.params=
 comment2.target=int\ getY()
 comment3.params=
@@ -22,4 +18,4 @@ comment8.params=e
 comment8.target=void\ mousePressed(java.awt.event.MouseEvent)
 comment9.params=e
 comment9.target=void\ mouseReleased(java.awt.event.MouseEvent)
-numComments=12
+numComments=10
